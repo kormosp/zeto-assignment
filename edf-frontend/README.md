@@ -4,7 +4,7 @@ This is the **frontend** for the EDF Processing Assignment ? a Vue 3 + Vite appl
 
 ## ? Demo
 
-[![Watch the Demo](./public/demo-thumbnail.png)](./public/demonstration.mp4)
+[![EDF Processor - Demo](./public/demo-thumbnail.jpg)](./public/demonstration.gif)
 
 > Click the image above to watch the short demo video.
 ---
@@ -109,5 +109,5 @@ Build output will be located in the /dist folder and can be served via any stati
 This project is part of the EDF Processing Assignment for the Senior Full-Stack Developer position for Zeto Inc.
 It is for demonstration and evaluation purposes only.
 
-#### ??? Author: Peter Kormos Name
+#### ??? Author: Peter Kormos
 #### ? Date: November 2025
