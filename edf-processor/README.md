@@ -1,5 +1,5 @@
 # EDF Processor - Backend
-
+ 
 A Spring Boot REST API for processing and serving EDF (European Data Format) files. The application scans a predefined directory for EDF files, parses them, and exposes the data through RESTful endpoints.
 
 ## Table of Contents
