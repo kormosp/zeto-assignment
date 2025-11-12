@@ -1,0 +1,47 @@
+# ---- Root ignore file for full project ----
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode (if teammates use it)
+.vscode/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# ---- Backend (edf-processor) ----
+edf-processor/target/
+edf-processor/build/
+edf-processor/out/
+edf-processor/logs/
+edf-processor/*.log
+edf-processor/.mvn/
+edf-processor/.settings/
+edf-processor/.classpath
+edf-processor/.project
+edf-processor/.apt_generated/
+edf-processor/.factorypath/
+edf-processor/.sts4-cache/
+edf-processor/.springBeans/
+
+# ---- Frontend (edf-frontend) ----
+edf-frontend/node_modules/
+edf-frontend/dist/
+edf-frontend/*.local
+edf-frontend/npm-debug.log*
+edf-frontend/yarn-debug.log*
+edf-frontend/yarn-error.log*
+edf-frontend/pnpm-debug.log*
+edf-frontend/.env
+edf-frontend/.env.*
+!edf-frontend/.env.example
+
+# ---- Miscellaneous ----
+*.bak
+*.swp
+*.tmp
+*.orig

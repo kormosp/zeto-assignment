@@ -1,0 +1,18 @@
+### GET request to download all the records
+GET http://localhost:8080/api/edfs
+Accept: application/json
+
+### GET request to download all the records sorted by RecordingDate
+GET http://localhost:8080/api/edfs/sorted
+Accept: application/json
+
+
+### Rescan source and download all the records
+POST http://localhost:8080/api/edfs/rescan
+Accept: application/json
+
+### Rescan source and download all the records sorted
+POST http://localhost:8080/api/edfs/rescan?sorted=true
+Accept: application/json
+
+
