@@ -18,15 +18,15 @@ A Spring Boot REST API for processing and serving EDF (European Data Format) fil
 
 ## Features
 
-- ? Automatic scanning of EDF files from a configured directory
-- ? Parsing of both valid and invalid EDF files
-- ? Extraction of comprehensive EDF metadata (channels, recordings, annotations)
-- ? Runtime directory rescanning capability
-- ? Graceful handling of corrupted or invalid files
-- ? RESTful API with JSON responses
-- ?? RFC 7807 Problem Details error responses
-- ?? Domain-Driven Design (DDD) architecture
-- ? Comprehensive JavaDoc documentation
+- 📂 Automatic scanning of EDF files from a configured directory
+- 🔍 Parsing of both valid and invalid EDF files
+- 📊 Extraction of comprehensive EDF metadata (channels, recordings, annotations)
+- 🔄 Runtime directory rescanning capability
+- ✅ Graceful handling of corrupted or invalid files
+- 🎯 RESTful API with JSON responses
+- 🛡️ RFC 7807 Problem Details error responses
+- 🏗️ Domain-Driven Design (DDD) architecture
+- 📝 Comprehensive JavaDoc documentation
 
 ## Technology Stack
 
@@ -43,34 +43,34 @@ A Spring Boot REST API for processing and serving EDF (European Data Format) fil
 
 ```
 edf-processor/
-??? src/main/java/com/zeto/edf_processor/
-?   ??? config/
-?   ?   ??? EdfProcessorProperties.java    # Configuration properties
-?   ??? controller/
-?   ?   ??? EdfController.java              # REST API endpoints
-?   ??? dto/
-?   ?   ??? ChannelDto.java                 # Channel data transfer object
-?   ?   ??? EdfDto.java                     # EDF data transfer object
-?   ?   ??? EdfMapper.java                  # MapStruct mapper interface
-?   ?   ??? ChannelMapper.java              # Channel mapper interface
-?   ??? exceptions/
-?   ?   ??? EdfDataNotFoundException.java   # Custom exception
-?   ?   ??? EdfSourceNotFoundException.java # Custom exception
-?   ?   ??? GlobalExceptionHandler.java     # Global error handler
-?   ??? model/
-?   ?   ??? EdfData.java                    # Domain entity (DDD)
-?   ?   ??? EdfFileProperties.java          # Value object
-?   ?   ??? Channels.java                   # Value object
-?   ?   ??? PatientInfo.java                # Value object
-?   ?   ??? RecordingDate.java              # Value object
-?   ?   ??? RecordingMetrics.java           # Value object
-?   ??? repository/
-?   ?   ??? EdfDataRepository.java          # Data access layer
-?   ?   ??? EdfReader.java                  # EDF file reader utility
-?   ??? service/
-?       ??? EdfService.java                 # Business logic layer
-??? src/main/resources/
-    ??? application.properties              # Application configuration
+├── src/main/java/com/zeto/edf_processor/
+│   ├── config/
+│   │   └── EdfProcessorProperties.java    # Configuration properties
+│   ├── controller/
+│   │   └── EdfController.java              # REST API endpoints
+│   ├── dto/
+│   │   ├── ChannelDto.java                 # Channel data transfer object
+│   │   ├── EdfDto.java                     # EDF data transfer object
+│   │   ├── EdfMapper.java                  # MapStruct mapper interface
+│   │   └── ChannelMapper.java              # Channel mapper interface
+│   ├── exceptions/
+│   │   ├── EdfDataNotFoundException.java   # Custom exception
+│   │   ├── EdfSourceNotFoundException.java # Custom exception
+│   │   └── GlobalExceptionHandler.java     # Global error handler
+│   ├── model/
+│   │   ├── EdfData.java                    # Domain entity (DDD)
+│   │   ├── EdfFileProperties.java          # Value object
+│   │   ├── Channels.java                   # Value object
+│   │   ├── PatientInfo.java                # Value object
+│   │   ├── RecordingDate.java              # Value object
+│   │   └── RecordingMetrics.java           # Value object
+│   ├── repository/
+│   │   ├── EdfDataRepository.java          # Data access layer
+│   │   └── EdfReader.java                  # EDF file reader utility
+│   └── service/
+│       └── EdfService.java                 # Business logic layer
+└── src/main/resources/
+    └── application.properties              # Application configuration
 ```
 
 ## Getting Started
@@ -243,25 +243,25 @@ All errors follow RFC 7807 Problem Details format:
 ### Layered Architecture
 
 ```
-???????????????????????????????????????
-?      Presentation Layer             ?
-?  (Controllers, DTOs, Mappers)       ?
-???????????????????????????????????????
-               ?
-???????????????????????????????????????
-?      Application Layer              ?
-?  (Services, Use Cases)              ?
-???????????????????????????????????????
-               ?
-???????????????????????????????????????
-?      Domain Layer (DDD)             ?
-?  (Entities, Value Objects)          ?
-???????????????????????????????????????
-               ?
-???????????????????????????????????????
-?      Infrastructure Layer           ?
-?  (Repositories, File I/O)           ?
-???????????????????????????????????????
+┌─────────────────────────────────────┐
+│      Presentation Layer             │
+│  (Controllers, DTOs, Mappers)       │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│      Application Layer              │
+│  (Services, Use Cases)              │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│      Domain Layer (DDD)             │
+│  (Entities, Value Objects)          │
+└──────────────┬──────────────────────┘
+               │
+┌──────────────▼──────────────────────┐
+│      Infrastructure Layer           │
+│  (Repositories, File I/O)           │
+└─────────────────────────────────────┘
 ```
 
 ### Design Patterns
@@ -295,17 +295,17 @@ All errors follow RFC 7807 Problem Details format:
 
 ```
 RuntimeException
-??? EdfSourceNotFoundException    (EDF Directory not found)
-??? EdfDataNotFoundException       (No data available)
+├── EdfSourceNotFoundException    (EDF Directory not found)
+└── EdfDataNotFoundException       (No data available)
 ```
 
 ### Global Exception Handler
 
 All exceptions are caught by `GlobalExceptionHandler` and converted to RFC 7807 Problem Details:
 
-- **EdfSourceNotFoundException** ? 404 Not Found
-- **EdfDataNotFoundException** ? 404 Not Found
-- **Generic Exception** ? 500 Internal Server Error
+- **EdfSourceNotFoundException** → 404 Not Found
+- **EdfDataNotFoundException** → 404 Not Found
+- **Generic Exception** → 500 Internal Server Error
 
 ## Development
 
@@ -375,7 +375,7 @@ Or kill process using port 8080
 This project is part of the EDF Processing Assignment for the Senior Full-Stack Developer position for Zeto Inc.
 It is for demonstration and evaluation purposes only.
 
-#### ??? Author: Peter Kormos
-#### ? Date: November 2025
+#### 👨‍💻 Author: Peter Kormos
+#### 📅 Date: November 2025
 
 
