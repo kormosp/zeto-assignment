@@ -4,23 +4,33 @@ import lombok.Getter;
 
 import java.util.*;
 
-/*
-* Value object representing the Channel information
-*/
+/**
+ * Represents the collection of signal channels in an EDF recording.
+ * Each channel has a label and an optional type.
+ */
 @Getter
 public class Channels {
-
+    /**
+     * Immutable record representing a single channel.
+     */
     public record Channel (String label, String type){}
 
+    /** List of signal channels */
     private final List<Channel> signalChannels;
 
-    //Constructor
+    /**Constructor   */
     private Channels(List<Channel> signalChannels) {
         // return an immutable list
         this.signalChannels = List.copyOf(signalChannels);
     }
 
-    //Create and return a list
+    /**
+     * Creates a {@link Channels} object from arrays of labels and types.
+     *
+     * @param labels Array of channel labels
+     * @param types Array of channel types (optional)
+     * @return Channels object with all channels populated
+     */
     public static Channels from(String[] labels, String[] types) {
         if (labels == null || labels.length == 0)
             return new Channels(Collections.emptyList());
@@ -41,11 +51,20 @@ public class Channels {
         return new Channels(channelsWithLabelAndType);
     }
 
-    //Create and return an empty list
+    /**
+     * Returns an empty Channels object.
+     *
+     * @return empty Channels
+     */
     public static Channels empty() {
         return new Channels(Collections.emptyList());
     }
 
+    /**
+     * Counts the number of channels.
+     *
+     * @return number of channels
+     */
     public int count() {
         return signalChannels.size();
     }

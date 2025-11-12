@@ -70,11 +70,13 @@ public class EdfDto {
      * <p>This field is always present for both valid and invalid files.</p>
      */
     private String fileName;
+
     /**
      * Indicates whether the EDF file was successfully parsed.
      * <p>{@code true} if file is valid and parsed successfully, {@code false} otherwise.</p>
      */
     private Boolean validEdf;
+
     /**
      * Error message explaining why the file is invalid.
      * <p>Only populated when {@link #validEdf} is {@code false}.
@@ -87,12 +89,14 @@ public class EdfDto {
      * <p>May be {@code null} if not present in the file or if file is invalid.</p>
      */
     private String recordingID;
+
     /**
      * Date and time when the recording was made.
      * <p>Combines the startDate and startTime fields from the EDF header.
      * {@code null} for invalid files or if date parsing fails.</p>
      */
     private LocalDateTime recordingDate;
+
     /**
      * Name of the patient extracted from the  EDF header:SubjectID field.
      * <p>The EDF standard format for SubjectID is: "Code Sex Birthdate Name".
@@ -107,6 +111,7 @@ public class EdfDto {
      * </ul>
      */
     private String patientName;
+
     /**
      * List of all channels (signals) with their names and types.
      * <p>Empty list for invalid files. Each channel contains:
@@ -119,6 +124,7 @@ public class EdfDto {
      * @see ChannelDto
      */
     private List<ChannelDto> channels;
+
     /**
      * Total number of channels (signals) in the EDF recording.
      * <p>{@code null} for invalid files.</p>
@@ -138,6 +144,7 @@ public class EdfDto {
      * </ul>
      */
     private Double recordingLength;
+
     /**
      * Number of annotations (events) in the EDF file.
      * <p>Annotations mark significant events during the recording,
