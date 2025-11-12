@@ -4,7 +4,7 @@ This is the **frontend** for the EDF Processing Assignment — a Vue 3 + Vite ap
 
 ## 🎥 Demo
 
-[![Watch the Demo](./public/demo-thumbnail.png)](./public/demonstration.mp4)
+[![Watch the Demo](./public/demo-thumbnail.jpg)](./public/demonstration.mp4)
 
 > Click the image above to watch the short demo video.
 ---
