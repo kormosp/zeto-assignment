@@ -2,13 +2,13 @@
 
 A full-stack web application for processing and visualizing EDF (European Data Format) files. The application consists of a Spring Boot backend API and a Vue.js 3 frontend, providing a modern interface for browsing and analyzing EDF medical recordings.
 
-## ? Demo
+## 🎥 Demo
 
 [![EDF Processor - Demo](./edf-frontend/public/demo-thumbnail.jpg)](./edf-frontend/public/demonstration.gif)
 > Click the image above to watch the short demo video.
 ---
 
-## ? Table of Contents
+## 📋 Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -22,7 +22,7 @@ A full-stack web application for processing and visualizing EDF (European Data F
 - [Development](#development)
 - [Troubleshooting](#troubleshooting)
 
-## ? Overview
+## 🎯 Overview
 
 This application demonstrates a complete solution for processing EDF medical data files with:
 - **Backend**: RESTful API built with Spring Boot
@@ -30,27 +30,27 @@ This application demonstrates a complete solution for processing EDF medical dat
 - **Data Processing**: In-memory parsing and caching of EDF files
 - **Visualization**: Clean, animated interface with sorting
 
-## ? Features
+## ✨ Features
 
 ### Backend Features
-- ? Automatic directory scanning for EDF files on startup
-- ? Robust parsing of valid and invalid EDF files
-- ? Complete metadata extraction (channels, recordings, annotations)
-- ? Real-time directory rescanning
-- ?? RFC 7807 Problem Details error handling
-- ?? Domain-Driven Design architecture
+- 📂 Automatic directory scanning for EDF files on startup
+- 🔍 Robust parsing of valid and invalid EDF files
+- 📊 Complete metadata extraction (channels, recordings, annotations)
+- 🔄 Real-time directory rescanning
+- 🛡️ RFC 7807 Problem Details error handling
+- 🏗️ Domain-Driven Design architecture
 
 ### Frontend Features
-- ? Modern, responsive Material Design-inspired UI
-- ? Smooth animations using Animate.css
-- ? Real-time file statistics (total, valid, invalid)
-- ? Manual directory rescan capability
-- ? Sort files by recording date
-- ? Expandable channel details for each file
-- ? Fast, reactive user experience
-- ? Clear error messaging
+- 🎨 Modern, responsive Material Design-inspired UI
+- ✨ Smooth animations using Animate.css
+- 🔢 Real-time file statistics (total, valid, invalid)
+- 🔄 Manual directory rescan capability
+- 📅 Sort files by recording date
+- 📋 Expandable channel details for each file
+- ⚡ Fast, reactive user experience
+- 🎯 Clear error messaging
 
-## ?? Technology Stack
+## 🛠️ Technology Stack
 
 ### Backend
 - **Java 17+**
@@ -67,54 +67,54 @@ This application demonstrates a complete solution for processing EDF medical dat
 - **JavaScript ES6+**
 - **CSS3** (Scoped styles)
 
-## ? Project Structure
+## 📁 Project Structure
 
 ```
 Assignment_Zeto/
-??? edf-processor/                    # Backend (Spring Boot)
-?   ??? src/main/java/
-?   ?   ??? com/zeto/edf_processor/
-?   ?       ??? config/               # Configuration
-?   ?       ??? controller/           # REST controllers
-?   ?       ??? dto/                  # Data Transfer Objects
-?   ?       ??? exceptions/           # Custom exceptions
-?   ?       ??? model/                # Domain model (DDD)
-?   ?       ??? repository/           # Data access layer
-?   ?       ??? service/              # Business logic
-?   ??? src/main/resources/
-?   ?   ??? application.properties    # Backend config
-?   ??? pom.xml
-?   ??? README.md                     # Backend documentation
-?
-??? edf-frontend/                     # Frontend (Vue 3 + Vite)
-?   ??? src/
-?   ?   ??? components/               # Vue components
-?   ?   ?   ??? AppHeader.vue
-?   ?   ?   ??? Controls.vue
-?   ?   ?   ??? FileList.vue
-?   ?   ?   ??? FileCard.vue
-?   ?   ?   ??? ChannelList.vue
-?   ?   ?   ??? LoadingState.vue
-?   ?   ?   ??? EmptyState.vue
-?   ?   ?   ??? ErrorMessage.vue
-?   ?   ??? App.vue                   # Root component
-?   ?   ??? main.js                   # Entry point
-?   ?   ??? style.css                 # Global styles
-?   ??? public/
-?   ?   ??? ekg.png                   # Channel icon
-?   ??? package.json
-?   ??? vite.config.js
-?   ??? index.html
-?   ??? README.md                     # Frontend documentation
-?
-??? data/
-?   ??? edf/                          # EDF files directory
-?       ??? *.edf                     # Your EDF files here
-?
-??? README.md                         # This file
+├── edf-processor/                    # Backend (Spring Boot)
+│   ├── src/main/java/
+│   │   └── com/zeto/edf_processor/
+│   │       ├── config/               # Configuration
+│   │       ├── controller/           # REST controllers
+│   │       ├── dto/                  # Data Transfer Objects
+│   │       ├── exceptions/           # Custom exceptions
+│   │       ├── model/                # Domain model (DDD)
+│   │       ├── repository/           # Data access layer
+│   │       └── service/              # Business logic
+│   ├── src/main/resources/
+│   │   └── application.properties    # Backend config
+│   ├── pom.xml
+│   └── README.md                     # Backend documentation
+│
+├── edf-frontend/                     # Frontend (Vue 3 + Vite)
+│   ├── src/
+│   │   ├── components/               # Vue components
+│   │   │   ├── AppHeader.vue
+│   │   │   ├── Controls.vue
+│   │   │   ├── FileList.vue
+│   │   │   ├── FileCard.vue
+│   │   │   ├── ChannelList.vue
+│   │   │   ├── LoadingState.vue
+│   │   │   ├── EmptyState.vue
+│   │   │   └── ErrorMessage.vue
+│   │   ├── App.vue                   # Root component
+│   │   ├── main.js                   # Entry point
+│   │   └── style.css                 # Global styles
+│   ├── public/
+│   │   └── ekg.png                   # Channel icon
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+│   └── README.md                     # Frontend documentation
+│
+├── data/
+│   └── edf/                          # EDF files directory
+│       ├── *.edf                     # Your EDF files here
+│
+└── README.md                         # This file
 ```
 
-## ? Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
 - Java 17+
@@ -130,8 +130,7 @@ cd edf-processor
 mvn spring-boot:run
 # Backend will start at http://localhost:8080
 
-**Verify backend is running:**
-```bash
+** Verify backend is running: **
 curl http://localhost:8080/api/edfs
 ```
 
@@ -148,26 +147,6 @@ npm run dev
 # Navigate to: http://localhost:5173
 ```
 
-
-### Frontend Setup
-
-```bash
-# Navigate to frontend directory
-cd frontend
-
-# Install dependencies
-npm install
-
-# Configure API URL (if needed)
-# Edit src/App.vue
-# const API_BASE_URL = 'http://localhost:8080/api/edfs'
-
-# Start development server
-npm run dev
-
-# Frontend will start at http://localhost:5173
-```
-
 ### Data Directory Setup, if not exist
 
 ```bash
@@ -181,7 +160,7 @@ cp /path/to/your/*.edf data/edf/
 ls -la data/edf/
 ```
 
-## ? Usage
+## 💡 Usage
 
 ### Web Interface
 
@@ -222,28 +201,28 @@ curl -X POST http://localhost:8080/api/edfs/rescan?sorted=true
 curl -X POST http://localhost:8080/api/edfs/rescan?sorted=false
 ```
 
-## ?? Architecture
+## 🏛️ Architecture
 
 ### System Overview
 
 ```
-???????????????????
-?   Web Browser   ?
-???????????????????
-         ? HTTP
-         ?
-???????????????????      ????????????????
-?  Vue Frontend   ????????  Spring Boot ?
-?  (Port 5173)    ? REST ?  (Port 8080) ?
-???????????????????      ????????????????
-                                ?
-                         ????????????????
-                         ?  File System ?
-                         ?  (data/edf/) ?
-                         ????????????????
+┌─────────────────┐
+│   Web Browser   │
+└────────┬────────┘
+         │ HTTP
+         │
+┌────────▼────────┐      ┌──────────────┐
+│  Vue Frontend   │◄────►│  Spring Boot │
+│  (Port 5173)    │ REST │  (Port 8080) │
+└─────────────────┘      └──────┬───────┘
+                                │
+                         ┌──────▼───────┐
+                         │  File System │
+                         │  (data/edf/) │
+                         └──────────────┘
 ```
 
-## ? API Reference
+## 📡 API Reference
 
 ### Base URL
 ```
@@ -256,10 +235,10 @@ http://localhost:8080/api/edfs
 |--------|----------|-------------|----------|
 | GET | `/api/edfs` | Get all EDF files | Array of EdfDto |
 | GET | `/api/edfs/sorted` | Get sorted files | Array of EdfDto (sorted) |
-| POST | `/api/edfs/rescan` | Rescan directory | Array of EdfDto |
+| POST | `/api/edfs/rescan?sorted=true/false` | Rescan directory | Array of EdfDto |
 
 
-## ? Development
+## 🔧 Development
 
 ### Backend Development
 
@@ -306,7 +285,7 @@ curl -X POST http://localhost:8080/api/edfs/rescan
 # Or click "Rescan EDF File Source" in the UI
 ```
 
-## ? Troubleshooting
+## 🐛 Troubleshooting
 
 ### Backend Issues
 
@@ -338,20 +317,6 @@ npm install
 npm run dev
 ```
 
-**Problem: CORS errors**
-```java
-// Add or modify WebConfig.java in backend
-@Configuration
-public class WebConfig implements WebMvcConfigurer {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:5173")
-                .allowedMethods("GET", "POST");
-    }
-}
-```
-
 **Problem: API not reachable**
 ```javascript
 // Check API_BASE_URL in src/App.vue
@@ -369,7 +334,7 @@ Solution: Files marked as invalid will still appear with error message
 Check file integrity with EDF validation tool
 ```
 
-## ? Production Build
+## 📦 Production Build
 
 ### Backend
 
@@ -388,11 +353,11 @@ npm run build
 # Deploy to any static file server
 ```
 
-## ? License
+## 📄 License
 
 This project is part of the EDF Processing Assignment for the Senior Full-Stack Developer position for Zeto Inc.
 It is for demonstration and evaluation purposes only.
 
-#### ??? Author: Peter Kormos
-#### ? Date: November 2025
+#### 👨‍💻 Author: Peter Kormos
+#### 📅 Date: November 2025
 
