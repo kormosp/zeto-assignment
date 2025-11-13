@@ -2,10 +2,10 @@
 
 A full-stack web application for processing and visualizing EDF (European Data Format) files. The application consists of a Spring Boot backend API and a Vue.js 3 frontend, providing a modern interface for browsing and analyzing EDF medical recordings.
 
-## 🎥 Demo
+## 🎥 Click for a short demo video
 
 [![EDF Processor - Demo](./edf-frontend/public/demo-thumbnail.jpg)](./edf-frontend/public/demonstration.gif)
-> Click the image above to watch the short demo video.
+> Click the image for a short demo video
 ---
 
 ## 📋 Table of Contents
