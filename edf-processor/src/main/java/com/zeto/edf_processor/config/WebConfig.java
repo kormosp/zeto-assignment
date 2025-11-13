@@ -1,23 +1,23 @@
 package com.zeto.edf_processor.config;
 
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${edfs.allowed-origins}")
-    private String[] allowedOrigins;
+    private final CorsProperties corsProperties;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins(allowedOrigins)
-                .allowCredentials(true)
-                .allowedMethods("GET", "POST" /*, "PUT", "DELETE"*/)
+                .allowedOrigins(corsProperties.getAllowedOrigins())
+                .allowCredentials(corsProperties.isAllowCredentials())
+                .allowedMethods(corsProperties.getAllowedMethods())
                 .allowedHeaders("*");
     }
 }
