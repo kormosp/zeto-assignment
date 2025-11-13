@@ -19,9 +19,9 @@ public class Channels {
     private final List<Channel> signalChannels;
 
     /**Constructor   */
-    private Channels(List<Channel> signalChannels) {
+    private Channels(List<Channel> channels) {
         // return an immutable list
-        this.signalChannels = List.copyOf(signalChannels);
+        this.signalChannels = List.copyOf(channels);
     }
 
     /**
