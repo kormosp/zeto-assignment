@@ -180,4 +180,12 @@ public class EdfData {
         return channels.count();
     }
 
+    /**
+     * Checks if this EDF data is a valid file.
+     * @return true if file is valid
+     */
+    public boolean isValidEdf() {
+        return edfFileProperties != null && edfFileProperties.isValidEdf();
+    }
+
 }
