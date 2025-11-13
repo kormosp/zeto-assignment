@@ -27,6 +27,7 @@ A Spring Boot REST API for processing and serving EDF (European Data Format) fil
 - 🛡️ RFC 7807 Problem Details error responses
 - 🏗️ Domain-Driven Design (DDD) architecture
 - 📝 Comprehensive JavaDoc documentation
+- 🛡️ Thread-safety in-memory cache as EDF Storage
 
 ## Technology Stack
 
@@ -45,7 +46,9 @@ A Spring Boot REST API for processing and serving EDF (European Data Format) fil
 edf-processor/
 ├── src/main/java/com/zeto/edf_processor/
 │   ├── config/
-│   │   └── EdfProcessorProperties.java    # Configuration properties
+│   │   └── EdfProcessorProperties.java     # EDF Configuration properties
+│   │   ├── CorsProperties.java             # CORS Configuration properties
+│   │   └── WebConfig.java                  # CORS WebConfig class
 │   ├── controller/
 │   │   └── EdfController.java              # REST API endpoints
 │   ├── dto/
@@ -135,8 +138,8 @@ server.port=8080
 
 ### Environment Variables
 
-You can override properties using environment variables:
-
+You can override properties using environment variables.
+Example:
 ```bash
 export EDF_EDF-SOURCE=/opt/edf-files
 export SERVER_PORT=9090
@@ -144,7 +147,6 @@ java -jar target/edf-processor-0.0.1-SNAPSHOT.jar
 ```
 
 ## API Documentation
-
 
 ### Base URL
 The application starts on localhost:8080 by default.
@@ -245,7 +247,7 @@ All errors follow RFC 7807 Problem Details format:
 ```
 ┌─────────────────────────────────────┐
 │      Presentation Layer             │
-│  (Controllers, DTOs, Mappers)       │
+│  (Controller, DTO, Mappers)         │
 └──────────────┬──────────────────────┘
                │
 ┌──────────────▼──────────────────────┐
@@ -255,7 +257,7 @@ All errors follow RFC 7807 Problem Details format:
                │
 ┌──────────────▼──────────────────────┐
 │      Domain Layer (DDD)             │
-│  (Entities, Value Objects)          │
+│  (Entity, Value Objects)            │
 └──────────────┬──────────────────────┘
                │
 ┌──────────────▼──────────────────────┐
@@ -301,22 +303,13 @@ RuntimeException
 
 ### Global Exception Handler
 
-All exceptions are caught by `GlobalExceptionHandler` and converted to RFC 7807 Problem Details:
+All exceptions are caught by `GlobalExceptionHandler` and converted to RFC 7807 specific Problem Details:
 
 - **EdfSourceNotFoundException** → 404 Not Found
 - **EdfDataNotFoundException** → 404 Not Found
 - **Generic Exception** → 500 Internal Server Error
 
 ## Development
-
-### Code Style
-
-- Java Code Conventions
-- Meaningful variable and method names
-- Comprehensive JavaDoc comments
-- Lombok for boilerplate reduction
-- Mapstruct for domain entity->DTO mapping
-
 
 ### Hot Reload
 

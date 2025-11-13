@@ -3,7 +3,7 @@
 This is the **frontend** for the EDF Processing Assignment — a Vue 3 + Vite application that communicates with the Spring Boot backend to display, sort, and rescan EDF files located in a predefined directory.
 
 ## 🎥 Demo
-
+![](C:\Users\A347385\sajat\cv\ZetoInterju\Assignment_Zeto\edf-frontend\public\demonstration.gif)
 [![EDF Processor - Demo](./public/demo-thumbnail.jpg)](./public/demonstration.gif)
 > Click the image above to watch the short demo video.
 ---
