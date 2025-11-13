@@ -39,6 +39,7 @@ This application demonstrates a complete solution for processing EDF medical dat
 - 🔄 Real-time directory rescanning
 - 🛡️ RFC 7807 Problem Details error handling
 - 🏗️ Domain-Driven Design architecture
+- 🛡️ Thread-safety in-memory cache as EDF Storage
 
 ### Frontend Features
 - 🎨 Modern, responsive Material Design-inspired UI
@@ -89,14 +90,6 @@ Assignment_Zeto/
 ├── edf-frontend/                     # Frontend (Vue 3 + Vite)
 │   ├── src/
 │   │   ├── components/               # Vue components
-│   │   │   ├── AppHeader.vue
-│   │   │   ├── Controls.vue
-│   │   │   ├── FileList.vue
-│   │   │   ├── FileCard.vue
-│   │   │   ├── ChannelList.vue
-│   │   │   ├── LoadingState.vue
-│   │   │   ├── EmptyState.vue
-│   │   │   └── ErrorMessage.vue
 │   │   ├── App.vue                   # Root component
 │   │   ├── main.js                   # Entry point
 │   │   └── style.css                 # Global styles
@@ -109,7 +102,7 @@ Assignment_Zeto/
 │
 ├── data/
 │   └── edf/                          # EDF files directory
-│       ├── *.edf                     # Your EDF files here
+│       └── *.edf                     # EDF files 
 │
 └── README.md                         # This file
 ```
@@ -120,7 +113,7 @@ Assignment_Zeto/
 - Java 17+
 - Node.js 18+
 - npm or yarn
-- EDF files in `data/edf/` directory
+- EDF files in `data/edf/` directory, can be configured on the backend
 
 ### Run Everything at Once
 
@@ -157,7 +150,6 @@ mkdir -p data/edf
 cp /path/to/your/*.edf data/edf/
 
 # Verify files are present
-ls -la data/edf/
 ```
 
 ## 💡 Usage
@@ -237,42 +229,6 @@ http://localhost:8080/api/edfs
 | GET | `/api/edfs/sorted` | Get sorted files | Array of EdfDto (sorted) |
 | POST | `/api/edfs/rescan?sorted=true/false` | Rescan directory | Array of EdfDto |
 
-
-## 🔧 Development
-
-### Backend Development
-
-```bash
-cd edf-processor
-
-# Run with hot reload
-mvn spring-boot:run
-
-# Run tests
-mvn test
-
-# Build for production
-mvn clean package
-```
-
-### Frontend Development
-
-```bash
-cd edf-frontend
-
-# Development server with hot reload
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Lint code
-npm run lint
-```
-
 ### Adding New EDF Files
 
 ```bash
@@ -340,6 +296,8 @@ Check file integrity with EDF validation tool
 
 ```bash
 cd edf-processor
+# Run tests
+mvn test
 mvn clean package
 java -jar target/edf-processor-0.0.1-SNAPSHOT.jar
 ```
@@ -349,6 +307,10 @@ java -jar target/edf-processor-0.0.1-SNAPSHOT.jar
 ```bash
 cd frontend
 npm run build
+# Preview production build
+npm run preview
+# Lint code
+npm run lint
 # Files will be in dist/ directory
 # Deploy to any static file server
 ```
