@@ -83,13 +83,11 @@ public class EdfService {
      * @param sorted : boolean, result shall be sorted by recording date
      * @throws EdfSourceNotFoundException, if the configured directory does not exist or is not accessible
      */
-    public List<EdfDto> rescan(Optional<Boolean> sorted) {
+    public List<EdfDto> rescan(boolean sorted) {
         log.debug("Rescanning EDF source and return all records");
         edfDataRepository.loadEdfs();
-        if (sorted.isPresent() && sorted.get()) {
-            return listEdfsSortedByRecordingDate();
-        }
-        return listEdfs();
+        return sorted ? listEdfsSortedByRecordingDate()
+                      : listEdfs();
     }
 
     /**
