@@ -10,17 +10,22 @@ A full-stack web application for processing and visualizing EDF (European Data F
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Quick Start](#quick-start)
-- [Detailed Setup](#detailed-setup)
-- [Usage](#usage)
-- [Architecture](#architecture)
-- [API Reference](#api-reference)
-- [Development](#development)
-- [Troubleshooting](#troubleshooting)
+<!-- TOC -->
+* [EDF File Processor Application](#edf-file-processor-application)
+  * [🎥 Demo](#-demo)
+  * [📋 Table of Contents](#-table-of-contents)
+  * [🎯 Overview](#-overview)
+  * [✨ Features](#-features)
+  * [🛠️ Technology Stack](#-technology-stack)
+  * [📁 Project Structure](#-project-structure)
+  * [🚀 Quick Start](#-quick-start)
+  * [💡 Usage](#-usage)
+  * [🏛️ Architecture](#-architecture)
+  * [📡 API Reference](#-api-reference)
+  * [🐛 Troubleshooting](#-troubleshooting)
+  * [📦 Production Build](#-production-build)
+  * [📄 License](#-license)
+ <!-- TOC -->
 
 ## 🎯 Overview
 
