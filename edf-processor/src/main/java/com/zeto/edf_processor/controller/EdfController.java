@@ -80,19 +80,19 @@ public class EdfController {
     /**
      * Rescans the EDF directory and returns the updated list of files.
      *
-     * <p>This endpoint triggers a fresh scan of the configured directory,
+     * <p>This endpoint triggers a scan of the source directory,
      * reloading all EDF files from disk. This is useful when files have been
      * added, removed, or modified in the directory.</p>
      *
      * <p><b>Note:</b> This operation clears the in-memory cache and reloads
      * all files.</p>
      *
-     * @param sorted : boolean, list shall be sorted by recording date, required:false
+     * @param sorted list shall be sorted by recording date, required:false, defaultValue:false
      * @return List of all EDF files after rescanning the directory
      * @throws EdfSourceNotFoundException, if the configured directory does not exist
      */
     @PostMapping("/rescan")
-    public List<EdfDto> rescanSource(@RequestParam Optional<Boolean> sorted) {
+    public List<EdfDto> rescanSource(@RequestParam(defaultValue = "false") boolean sorted) {
         log.debug("Rescanning EDF source directory");
         List<EdfDto> edfDtos = edfService.rescan(sorted);
         return edfDtos;
