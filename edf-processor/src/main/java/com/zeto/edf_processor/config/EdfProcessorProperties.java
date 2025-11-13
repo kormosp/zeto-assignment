@@ -1,11 +1,14 @@
 package com.zeto.edf_processor.config;
 
 import com.zeto.edf_processor.repository.EdfDataRepository;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
-import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 /**
@@ -34,12 +37,23 @@ import java.io.File;
 @Data
 @Component
 @ConfigurationProperties(prefix = "edf")
+@Validated
 public class EdfProcessorProperties {
+    @NotBlank(message = "App root directory must be configured")
     private String edfAppDir;
+    @NotBlank(message = "EDF source directory must be configured")
     private String edfSource;
 
-    // returns Absolute Path to directory contains edf files
-    public String getFullEdfSource() {
-        return edfAppDir + File.separator + edfSource;
+    // return the String of Absolute Path to directory containing the  edf files
+    public String getEdfSourceDirectory() {
+        return getEdfSourcePath().toString();
+    }
+
+    /**
+     * Returns the absolute path to the directory containing EDF files
+     * using Path for proper cross-platform path handling
+     */
+    public Path getEdfSourcePath() {
+        return Paths.get(edfAppDir, edfSource).toAbsolutePath().normalize();
     }
 }
