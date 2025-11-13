@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img width="384" height="88" src="https://zeto-inc.com/wp-content/uploads/2025/10/Zeto-Logo-dark.png" alt="Zeto Logo Dark">
+    <img width="384" height="88" src="/Zeto-Logo-dark.png" alt="Zeto Logo Dark">
     <h1>EDF File Viewer</h1>
     <div class="info">
       <div>Total: <strong>{{ total }}</strong></div>
