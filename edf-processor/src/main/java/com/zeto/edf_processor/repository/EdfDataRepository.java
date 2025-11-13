@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Repository for managing EDF (European Data Format) file data from the file system.
@@ -52,10 +53,11 @@ public class EdfDataRepository {
     private final EdfProcessorProperties properties;
 
     /**
-     * In-memory cache of loaded EDF file data.
-     * <p>This list contains both valid and invalid EDF files.</p>
+     * In-memory "cache" of loaded EDF file data.
+     * This list contains both valid and invalid EDF files.
+     * Thread-safe without explicit synchronization for heavy workloads
      */
-    private final List<EdfData> edfs = new LinkedList<>();
+    private final List<EdfData> edfs = new CopyOnWriteArrayList<>();
 
     /**
      * Loads all EDF files from the configured directory on application startup.
@@ -85,7 +87,7 @@ public class EdfDataRepository {
         // clear local list first
         edfs.clear();
 
-        File directory = new File(properties.getFullEdfSource());
+        File directory = new File(properties.getEdfSourceDirectory());
         log.info("Start loading of EDF files from {}", directory.getAbsolutePath());
 
         if (!directory.exists() || !directory.isDirectory()) {
