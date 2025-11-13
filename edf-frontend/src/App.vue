@@ -31,7 +31,7 @@ import EmptyState from './components/EmptyState.vue'
 import ErrorMessage from './components/ErrorMessage.vue'
 import FileList from './components/FileList.vue'
 
-const API_BASE_URL = 'http://localhost:8080/api/edfs'
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL + '/api/edfs'
 
 const files = ref([])
 const loading = ref(false)
@@ -57,7 +57,6 @@ const fetchFiles = async () => {
 
   try {
     const url = sorted.value ? `${API_BASE_URL}/sorted` : API_BASE_URL
-    //const response = await fetch(url);
     const response = await fetch(`${url}?t=${Date.now()}`, {
       method: 'GET',
       headers: {

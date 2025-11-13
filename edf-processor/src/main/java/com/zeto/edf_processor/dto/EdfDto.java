@@ -133,7 +133,7 @@ public class EdfDto {
 
     /**
      * Total duration of the recording in seconds.
-     * <p>Calculated as: numberOfRecords × durationOfRecords.
+     * <p>Calculated as: numberOfRecords * durationOfRecords.
      * {@code null} for invalid files.</p>
      *
      * <p><b>Example values:</b></p>

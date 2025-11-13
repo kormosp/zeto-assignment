@@ -1,6 +1,6 @@
 package com.zeto.edf_processor.config;
 
-import jakarta.validation.constraints.NotBlank;
+
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -13,7 +13,9 @@ import org.springframework.stereotype.Controller;
 @ConfigurationProperties(prefix = "cors")
 public class CorsProperties {
     private String[] allowedOrigins;
+
     @NotEmpty(message = "App Interface must allow the most restrictive http method requests")
     private String[] allowedMethods;
+
     private boolean allowCredentials;
 }
