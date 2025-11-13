@@ -55,6 +55,12 @@ public class GlobalExceptionHandler {
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
+    @ExceptionHandler(EdfDataNotFoundException.class)
+    public ProblemDetail handleEdfDataNotFound(EdfDataNotFoundException ex) {
+        log.error("EDF data not found: {}", ex.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleNotFound(Exception ex) {
         log.error("Unexpected error occurred: {}", ex.getMessage());
