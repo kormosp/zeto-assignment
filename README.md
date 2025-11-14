@@ -5,14 +5,23 @@ A full-stack web application for processing and visualizing EDF (European Data F
 ## 🎥 Click for a short demo video
 
 [![EDF Processor - Demo](./edf-frontend/public/demo-thumbnail.jpg)](./edf-frontend/public/demonstration.gif)
-> Click the image for a short demo video
----
+## ☁️ Playground on Amazon Cloud
+[![AWS](https://img.shields.io/badge/AWS-Cloud-orange?logo=amazonaws)]()
+[![S3](https://img.shields.io/badge/Amazon%20S3-Hosting-blue?logo=amazons3)]()
+[![Elastic Beanstalk](https://img.shields.io/badge/Elastic%20Beanstalk-green?logo=awselasticbeanstalk)]()
+
+🔗 **URL:** http://zeto-frontend.s3-website.eu-north-1.amazonaws.com
+
+- **Backend:** AWS Elastic Beanstalk
+- **Frontend:** Amazon S3 (Static Website Hosting)
+
 
 ## 📋 Table of Contents
 
 <!-- TOC -->
 * [EDF File Processor Application](#edf-file-processor-application)
   * [🎥 Demo](#-demo)
+  * [🎥 AWS Playground](#-Playground on Amazon Cloud)
   * [📋 Table of Contents](#-table-of-contents)
   * [🎯 Overview](#-overview)
   * [✨ Features](#-features)

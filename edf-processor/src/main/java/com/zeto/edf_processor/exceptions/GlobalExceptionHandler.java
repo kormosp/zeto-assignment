@@ -39,10 +39,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * {@code spring.mvc.problemdetails.enabled=true} in application.properties
  * for automatic ProblemDetail support.</p>
  *
- * @author Your Name
+ * @author Peter Kormos
  * @version 1.0
- * @since 2024
- * @see ProblemDetail
  * @see ControllerAdvice
  */
 @ControllerAdvice
