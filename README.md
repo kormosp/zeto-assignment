@@ -1,4 +1,4 @@
-# EDF File Processor Application
+# EDF File Viewer Application
 
 A full-stack web application for processing and visualizing EDF (European Data Format) files. The application consists of a Spring Boot backend API and a Vue.js 3 frontend, providing a modern interface for browsing and analyzing EDF medical recordings.
 
