@@ -21,7 +21,7 @@ A full-stack web application for processing and visualizing EDF (European Data F
 <!-- TOC -->
 * [EDF File Processor Application](#edf-file-processor-application)
   * [🎥 Demo](#-demo)
-  * [🎥 AWS Playground](#-Playground on Amazon Cloud)
+  * [🎥 AWS Playground](#-Playground-on-Amazon-Cloud)
   * [📋 Table of Contents](#-table-of-contents)
   * [🎯 Overview](#-overview)
   * [✨ Features](#-features)
