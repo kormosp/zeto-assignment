@@ -14,9 +14,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 
-class EdfDataRepositoryTest {
+class EdfInMemoryRepositoryTest {
 
-    private EdfDataRepository edfDataRepository;
+    private EdfInMemoryRepository edfInMemoryRepository;
     private EdfProcessorProperties properties;
 
     @TempDir
@@ -29,22 +29,24 @@ class EdfDataRepositoryTest {
 
     @Test
     void loadEdfs_whenSourceDirectoryNotExist_thenThrowException() {
+        properties.setEdfAppDir("/tmp");
         properties.setEdfSource("non_existent_path/edf");
-        edfDataRepository = new EdfDataRepository(properties);
+        edfInMemoryRepository = new EdfInMemoryRepository(properties);
 
-        // EdfDataRepository::loadEdfs is PostConstruct, call it explicitly
-        assertThrows(EdfSourceNotFoundException.class, edfDataRepository::loadEdfs);
+        // EdfInMemoryRepository::loadEdfs is PostConstruct, call it explicitly
+        assertThrows(EdfSourceNotFoundException.class, edfInMemoryRepository::loadEdfs);
     }
 
 
     @Test
     void loadEdfs_whenSourceDirectoryEmpty_thenEdfListIsEmptyNoError() {
-        properties.setEdfSource(tempDir.getAbsolutePath());
-        edfDataRepository = new EdfDataRepository(properties);
+        properties.setEdfAppDir("");
+        properties.setEdfSource(tempDir.toString());
+        edfInMemoryRepository = new EdfInMemoryRepository(properties);
 
-        edfDataRepository.loadEdfs();
+        edfInMemoryRepository.loadEdfs();
 
-        List<EdfData> edfs = edfDataRepository.listEdfs();
+        List<EdfData> edfs = edfInMemoryRepository.listEdfs();
         assertThat(edfs.size(), equalTo(0));
     }
 

@@ -4,14 +4,12 @@ import com.zeto.edf_processor.dto.EdfDto;
 import com.zeto.edf_processor.dto.EdfMapper;
 import com.zeto.edf_processor.exceptions.EdfSourceNotFoundException;
 import com.zeto.edf_processor.model.EdfData;
-import com.zeto.edf_processor.repository.EdfDataRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Service layer for EDF (European Data Format) file operations.
@@ -39,7 +37,7 @@ public class EdfService {
     /**
      * Repository for accessing EDF file data from the file system.
      */
-    private final EdfDataRepository edfDataRepository;
+    private final EdfRepository edfDataRepository;
 
     /**
      * MapStruct mapper for converting between domain entities and DTOs.
@@ -113,4 +111,5 @@ public class EdfService {
                         Comparator.nullsLast(Comparator.reverseOrder())))
                 .toList();
     }
+
 }

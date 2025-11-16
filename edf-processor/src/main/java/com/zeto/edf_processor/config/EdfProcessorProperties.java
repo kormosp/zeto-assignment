@@ -1,6 +1,6 @@
 package com.zeto.edf_processor.config;
 
-import com.zeto.edf_processor.repository.EdfDataRepository;
+import com.zeto.edf_processor.repository.EdfInMemoryRepository;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -28,7 +28,7 @@ import java.nio.file.Paths;
  * </pre>
  *
  * <p><b>Validation:</b> The application validates the directory exists and
- * is readable during startup in {@link EdfDataRepository}.</p>
+ * is readable during startup in {@link EdfInMemoryRepository}.</p>
  *
  * @author Peter Kormos
  * @version 1.0

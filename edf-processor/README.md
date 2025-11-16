@@ -68,7 +68,8 @@ edf-processor/
 │   │   ├── RecordingDate.java              # Value object
 │   │   └── RecordingMetrics.java           # Value object
 │   ├── repository/
-│   │   ├── EdfDataRepository.java          # Data access layer
+│   │   ├── EdfRepository.java              # Data access layer interface
+│   │   ├── EdfInMemoryRepository.java      # Data access layer implementation
 │   │   └── EdfReader.java                  # EDF file reader utility
 │   └── service/
 │       └── EdfService.java                 # Business logic layer
@@ -240,30 +241,52 @@ All errors follow RFC 7807 Problem Details format:
 }
 ```
 
-## Architecture
-
-### Layered Architecture
+##  Clean Architecture principles
 
 ```
-┌─────────────────────────────────────┐
-│      Presentation Layer             │
-│  (Controller, DTO, Mappers)         │
-└──────────────┬──────────────────────┘
-               │
-┌──────────────▼──────────────────────┐
-│      Application Layer              │
-│  (Services, Use Cases)              │
-└──────────────┬──────────────────────┘
-               │
-┌──────────────▼──────────────────────┐
-│      Domain Layer (DDD)             │
-│  (Entity, Value Objects)            │
-└──────────────┬──────────────────────┘
-               │
-┌──────────────▼──────────────────────┐
-│      Infrastructure Layer           │
-│  (Repositories, File I/O)           │
-└─────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│                    Presentation Layer                         │
+│  ┌─────────────┐  ┌──────────┐  ┌─────────────────────────┐   │
+│  │ Controller  │  │   DTOs   │  │  Mapper (MapStruct)     │   │
+│  └─────────────┘  └──────────┘  └─────────────────────────┘   │
+└────────────────────────────┬──────────────────────────────────┘
+                             │ depends on
+                             ↓
+┌───────────────────────────────────────────────────────────────┐
+│                   Application Layer                           │
+│  ┌─────────────────────────────────────────────────────────┐  │
+│  │              Service (Use Cases)                        │  │
+│  │  EdfService  ────────────────────────────────┐          │  │
+│  │      │ depends on interface                  │          │  │
+│  │      ↓                                       ↓          │  │
+│  └─────────────────────────────────────────────────────────┘  │
+└────────────────────────────┬──────────────────────────────────┘
+                             │ depends on
+                             ↓
+┌───────────────────────────────────────────────────────────────┐
+│                      Domain Layer (Core)                      │
+│  ┌──────────────────┐  ┌────────────────┐  ┌──────────────┐   │
+│  │   Entities       │  │ Value Objects  │  │  Repository  │   │
+│  │                  │  │                │  │  Interface   │   │
+│  │                  │  │                │  │  (Port)      │   │
+│  └──────────────────┘  └────────────────┘  └──────────────┘   │
+│         ⚠ No dependencies on outer layers                     
+└────────────────────────────↑──────────────────────────────────┘
+                             │ implements
+┌────────────────────────────┴──────────────────────────────────┐
+│                   Infrastructure Layer                        │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │         Repository Implementation (Adapter)              │ │
+│  │         ↓                                                │ │
+│  │    EdfReader (File I/O)                                  │ │
+│  └──────────────────────────────────────────────────────────┘ │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │              Configuration                               │ │
+│  │  • EdfProcessorProperties                                │ │
+│  │  • WebConfig (CORS)                                      │ │
+│  └──────────────────────────────────────────────────────────┘ │
+└───────────────────────────────────────────────────────────────┘
+
 ```
 
 ### Design Patterns

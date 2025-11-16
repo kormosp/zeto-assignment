@@ -13,16 +13,16 @@ import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test.properties")
-public class EdfDataRepositoryIT {
+public class EdfInMemoryRepositoryIT {
 
     @Autowired
-    private EdfDataRepository edfDataRepository;
+    private EdfInMemoryRepository edfInMemoryRepository;
 
     @Test
     void loadAllEdfs_thenCheckEdfCount(){
-        edfDataRepository.loadEdfs();
-        List<EdfData> edfDataList = edfDataRepository.listEdfs();
-        assertThat(edfDataList.size(), equalTo(4));
+        edfInMemoryRepository.loadEdfs();
+        List<EdfData> edfDataList = edfInMemoryRepository.listEdfs();
+        assertThat(edfDataList.size(), equalTo(5));
     }
 
 

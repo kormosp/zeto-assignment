@@ -4,6 +4,7 @@ package com.zeto.edf_processor.repository;
 import com.zeto.edf_processor.config.EdfProcessorProperties;
 import com.zeto.edf_processor.exceptions.EdfSourceNotFoundException;
 import com.zeto.edf_processor.model.EdfData;
+import com.zeto.edf_processor.service.EdfRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +14,14 @@ import ru.mipt.edf.EDFParserResult;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+
+
+
+
 
 /**
  * Repository for managing EDF (European Data Format) file data from the file system.
@@ -41,7 +46,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Repository
 @Slf4j
 @RequiredArgsConstructor
-public class EdfDataRepository {
+public class EdfInMemoryRepository implements EdfRepository {
     /**
      * Static instance of EDF file reader for parsing operations.
      */
@@ -155,15 +160,15 @@ public class EdfDataRepository {
         log.debug("Successfully parsed: {}", file.getName());
         // Use factory method with all required data to create a valid EdfData
         return EdfData.createValidEdfData(file.getName(),
-                                                    edfh.getRecordingID(),
-                                                    edfh.getStartDate(),
-                                                    edfh.getStartTime(),
-                                                    edfh.getSubjectID(),
-                                                    edfh.getChannelLabels(),
-                                                    edfh.getTransducerTypes(),
-                                                    edfh.getNumberOfRecords(),
-                                                    edfh.getDurationOfRecords(),
-                                                    annotationsCount);
+                edfh.getRecordingID(),
+                edfh.getStartDate(),
+                edfh.getStartTime(),
+                edfh.getSubjectID(),
+                edfh.getChannelLabels(),
+                edfh.getTransducerTypes(),
+                edfh.getNumberOfRecords(),
+                edfh.getDurationOfRecords(),
+                annotationsCount);
     }
 
     /**
