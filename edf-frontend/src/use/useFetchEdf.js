@@ -1,4 +1,5 @@
 import {computed, ref} from "vue";
+import axios from "axios";
 
 
 export function useFetchEdf(apiBaseUrl) {
@@ -22,17 +23,11 @@ export function useFetchEdf(apiBaseUrl) {
         await delay();
 
         try {
-            const response = await fetch(url, { method: httpMethod })
-            // Handle error
-            if (!response.ok) {
-                const errorData = await response.json()
-                console.log('Backend error response:', errorData)
-                error.value = errorData.detail || 'An error occurred'
-            } else {
-                files.value = await response.json()
-            }
+            const response = await axios.request({url,  method: httpMethod, timeout: 10000})
+            files.value = response.data
         } catch (err) {
-            error.value = err.message
+            console.log('Backend error response:', err)
+            error.value = err.response?.data?.detail || err.message
         } finally {
             loading.value = false
             fetched.value = true
